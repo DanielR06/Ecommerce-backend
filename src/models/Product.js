@@ -21,8 +21,12 @@ const productSchema = new Schema ({
     images:[{
         type: Schema.Types.ObjectId,
         ref: 'ProductImg'
-    }]
-    //categoryId
+    }],
+    category: {
+        type: Schema.Types.ObjectId,
+        ref: 'Category',
+        required : true
+    }//categoryId
 });
 
 const Product = mongoose.model('Product', productSchema)

@@ -6,6 +6,10 @@ const categorySchema = new Schema ({
         type: String,
         required: true
     },
+    products: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Product',
+    }]//Products3
 });
 
 const Category = mongoose.model('Category', categorySchema)

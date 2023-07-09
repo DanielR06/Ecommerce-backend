@@ -2,7 +2,7 @@ const catchError = require('../utils/catchError');
 const Category = require('../models/Category');
 
 const getAll = catchError(async(req, res) => {
-    const result = await Category.find({})
+    const result = await Category.find({}).populate('products')
     return res.json(result);
 });
 
