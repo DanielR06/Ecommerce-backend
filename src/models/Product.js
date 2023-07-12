@@ -27,6 +27,14 @@ const productSchema = new Schema ({
         type: Schema.Types.ObjectId,
         ref: 'ProductImg'
     }],
+    carts:[{
+        type: Schema.Types.ObjectId,
+        ref: 'Cart'
+    }],
+    purchases:[{
+        type: Schema.Types.ObjectId,
+        ref: 'Purchase'
+    }]
 });
 
 const Product = mongoose.model('Product', productSchema)

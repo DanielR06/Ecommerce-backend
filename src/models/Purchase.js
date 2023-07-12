@@ -6,8 +6,16 @@ const purchaseSchema = new Schema({
         type: Number,
         required: true
     },
-    //userId
-    //productId
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required : true
+    },//userId
+    product: {
+        type: Schema.Types.ObjectId,
+        ref: 'Product',
+        required : true
+    },//productId
 });
 
 const Purchase = mongoose.model('Purchase', purchaseSchema);

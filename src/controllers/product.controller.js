@@ -4,7 +4,11 @@ const Category = require('../models/Category');
 const ProductImg = require('../models/ProductImg');
 
 const getAll = catchError(async(req, res) => {
-    const result = await Product.find({}).populate('images', 'url -_id').populate('category', 'name -_id');
+    const result = await Product.find({})
+        .populate('images', 'url -_id')
+        .populate('category', 'name -_id')
+        .populate('carts')
+        .populate('purchases');
     return res.json(result);
 });
 

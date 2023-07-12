@@ -22,6 +22,14 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    carts:[{
+        type: Schema.Types.ObjectId,
+        ref: 'Cart'
+    }],
+    purchases:[{
+        type: Schema.Types.ObjectId,
+        ref: 'Purchase'
+    }]
 });
 
 const User = mongoose.model('User', userSchema);

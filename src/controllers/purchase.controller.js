@@ -3,6 +3,8 @@ const Purchase = require('../models/Purchase');
 
 const getAll = catchError(async(req, res) => {
     const result = await Purchase.find({})
+        .populate('user')
+        .populate('product');
     return res.json(result);
 });
 

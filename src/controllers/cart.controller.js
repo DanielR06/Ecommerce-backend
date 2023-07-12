@@ -3,6 +3,8 @@ const Cart = require('../models/Cart');
 
 const getAll = catchError(async(req, res) => {
     const result = await Cart.find({})
+        .populate('user')
+        .populate('product');
     return res.json(result);
 });
 
