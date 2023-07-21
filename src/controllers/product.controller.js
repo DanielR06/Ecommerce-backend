@@ -4,7 +4,11 @@ const Category = require('../models/Category');
 const ProductImg = require('../models/ProductImg');
 
 const getAll = catchError(async(req, res) => {
-    const result = await Product.find({})
+    const { title, categoryId } = req.query;
+    const filter = {};
+    if (title) filter.title = { $regex: title, $options: 'i' };
+    if (categoryId) filter.categoryId = categoryId;
+    const result = await Product.find(filter)
         .populate('images', 'url -_id')
         .populate('category', 'name -_id')
         .populate('carts')
