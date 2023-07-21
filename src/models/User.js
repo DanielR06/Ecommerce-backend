@@ -29,7 +29,11 @@ const userSchema = new Schema({
     purchases:[{
         type: Schema.Types.ObjectId,
         ref: 'Purchase'
-    }]
+    }],
+    isVerified:{
+        type:Boolean,
+        default: false
+    },
 });
 
 const User = mongoose.model('User', userSchema);
