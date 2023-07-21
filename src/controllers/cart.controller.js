@@ -10,7 +10,9 @@ const getAll = catchError(async(req, res) => {
 
 const getOne = catchError(async(req, res) =>{
     const { id } = req.params;
-    const result = await Cart.findById(id);
+    const result = await Cart.findById(id)
+        .populate('user')
+        .populate('product');
     return res.json(result);
 });
 
