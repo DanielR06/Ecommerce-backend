@@ -1,4 +1,4 @@
-const { getAll, create, getOne, remove, update } = require('../controllers/purchase.controller');
+const { getAll, buyCart } = require('../controllers/purchase.controller');
 const express = require('express');
 const verifyJWT = require('../utils/verifyJWT');
 
@@ -6,11 +6,6 @@ const purchaseRouter = express.Router();
 
 purchaseRouter.route('/')
     .get(verifyJWT, getAll)
-    .post(create);
-
-purchaseRouter.route('/:id')
-    .get(verifyJWT, getOne)
-    .delete(verifyJWT, remove)
-    .put(verifyJWT, update);
+    .post(verifyJWT, buyCart);
 
 module.exports = purchaseRouter;
